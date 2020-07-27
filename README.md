@@ -1,8 +1,10 @@
 # Twitter Friendship Analytics
 
+
 Our application will give Twitter users a more explicit tool for account-discovery than Twitter's native recommendation algorithm.
 
 The backbone of the product will be the results of analyzing a many-to-many relationship between users and users through 'friendships'.  A friendship consists of a follower_id key that links to a user and a friend_id key that links to another user.  This will just simulate Twitter's basic relationship of following an account.
+
 
 We have a few models in mind to represent analyses of the basic relationship that might be useful or interesting.
 
