@@ -1,10 +1,10 @@
 class ChirpsController < ApplicationController
   before_action :set_chirp, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /chirps
   # GET /chirps.json
   def index
-    @chirps = Chirp.all
+    @chirps = Chirp.all.order("created_at DESC")
   end
 
   # GET /chirps/1
@@ -14,7 +14,7 @@ class ChirpsController < ApplicationController
 
   # GET /chirps/new
   def new
-    @chirp = Chirp.new
+    @chirp = current_user.chirps.build
   end
 
   # GET /chirps/1/edit
@@ -24,11 +24,11 @@ class ChirpsController < ApplicationController
   # POST /chirps
   # POST /chirps.json
   def create
-    @chirp = Chirp.new(chirp_params)
+    @chirp = current_user.chirps.build(chirp_params)
 
     respond_to do |format|
       if @chirp.save
-        format.html { redirect_to @chirp, notice: 'Chirp was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Chirp was successfully created.' }
         format.json { render :show, status: :created, location: @chirp }
       else
         format.html { render :new }
