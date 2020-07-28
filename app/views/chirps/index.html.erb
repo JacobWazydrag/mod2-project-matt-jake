@@ -39,7 +39,7 @@
   <tbody>
     <% @chirps.each do |chirp| %>
       <tr>
-        <td><%= chirp.chirp %></td>
+        <td><%= chirp.chirp_text %></td>
         <td><%= chirp.created_at %></td>
         <td><%= link_to 'Show', chirp %></td>
         <td><%= link_to 'Edit', edit_chirp_path(chirp) %></td>
