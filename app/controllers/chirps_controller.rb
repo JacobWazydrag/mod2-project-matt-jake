@@ -6,7 +6,11 @@ class ChirpsController < ApplicationController
   # GET /chirps
   # GET /chirps.json
   def index
+    if current_user 
     @chirps = current_user.chirps.all.order("created_at DESC")
+    else 
+      redirect_to new_user_session_path
+    end 
   end
 
   # GET /chirps/1
