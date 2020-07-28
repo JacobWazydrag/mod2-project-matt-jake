@@ -1,6 +1,8 @@
 class ChirpsController < ApplicationController
+  
   before_action :set_chirp, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
+
   # GET /chirps
   # GET /chirps.json
   def index
@@ -69,6 +71,6 @@ class ChirpsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def chirp_params
-      params.require(:chirp).permit(:chirp)
+      params.require(:chirp).permit(:chirp_text)
     end
 end
