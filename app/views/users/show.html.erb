@@ -9,8 +9,7 @@
   		</div>
   		<div class="media-content">
   			<div class="content">
-  				<strong><%= chirp.user.email %></strong><br />
-  				<small><%= chirp.user.email %></small><br/>
+  				<strong><%= chirp.user.email %></strong><br/>
   				<p><%= chirp.chirp_text %></p>
   			</div>
         <% if user_signed_in? && current_user.id == chirp.user_id %>
