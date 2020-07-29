@@ -4,18 +4,19 @@ class UsersController < ApplicationController
         @users = User.all
       end
 
-    def show 
+    def show
         @user = User.find(params[:id])
-        # if @user == current_user
-        #     redirect_to 'users#userprofile'
-        # else 
-        #     redirect_to new_user_session_path
-        # end
+        @chirps = @user.chirps.order("created_at DESC")
+        @friend_ids = @user.friends.map { |f| f.id }
     end
 
     def userprofile
-        @user = current_user
-        @chirps = @user.chirps.order("created_at DESC")
+        if current_user
+            @user = current_user
+            @chirps = @user.chirps.order("created_at DESC")
+        else
+            redirect_to new_user_session_path
+        end
     end
 
 end

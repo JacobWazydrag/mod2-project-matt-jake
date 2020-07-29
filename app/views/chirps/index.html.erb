@@ -4,17 +4,18 @@
     <% @chirps.each do |chirp| %>
         <%= link_to chirp.user.email, user_path(chirp.user) %>
         <%= chirp.chirp_text %>
-
-
 					<%= link_to like_chirp_path(chirp), method: :put do %>
+
 						<div class="block">
 						  <span class="button is-info is-rounded">
 						    Like Chrip <%= chirp.get_upvotes.size %>		
 						    <button class=""></button>
 						  </span>
 						</div>
+
 					<% end%>
 
-
     <% end %>
+
 <% end %>
+</div>

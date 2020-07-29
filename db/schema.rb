@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(version: 2020_07_29_172800) do
     t.integer "friend_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id", "friend_id"], name: "index_friendships_on_follower_id_and_friend_id", unique: true
+    t.index ["follower_id"], name: "index_friendships_on_follower_id"
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
   end
 
   create_table "images", force: :cascade do |t|

@@ -6,5 +6,8 @@ class CreateFriendships < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
+    add_index :friendships, :follower_id
+    add_index :friendships, :friend_id
+    add_index :friendships, [:follower_id, :friend_id], unique: true
   end
 end
