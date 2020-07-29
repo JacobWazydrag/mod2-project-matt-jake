@@ -1,29 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<% @chirps.each do |chirp| %>
-  <div class="box">
-  	<article class="media">
-  		<div class="media-left">
-  			<figure class="image is-64x64">
-  				<%= gravatar_image_tag(chirp.user.email, size: 64) %>
-  			</figure>
-  		</div>
-  		<div class="media-content">
-  			<div class="content">
-  				<strong><%= link_to chirp.user.name, user_path(chirp.user.id) %></strong><br/>
-  				<p><%= chirp.chirp_text %></p>
-  			</div>
-  			<nav class="level">
-  				<div class="level-left is-mobile">
-  					<%= link_to chirp, class: "level-item" do %>
-  					  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
- 
-                      <% #TWEET LIKE GOES HERE %>
-  				</div>
-  			</nav>
-        <% end %>
-  		</div>
-  	</article>
-  </div>
+<% if user_signed_in? %>
+    <% @chirps.each do |chirp| %>
+        <%= link_to chirp.user.email, user_path(chirp.user) %>
+        <%= chirp.chirp_text %>
+					<%= link_to like_chirp_path(chirp), method: :put do %>
+
+						<div class="block">
+						  <span class="button is-info is-rounded">
+						    Like Chrip <%= chirp.get_upvotes.size %>		
+						    <button class=""></button>
+						  </span>
+						</div>
+
+					<% end%>
+
+    <% end %>
+
 <% end %>
 </div>

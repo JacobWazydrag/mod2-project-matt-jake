@@ -1,13 +1,16 @@
 class LikesController < ApplicationController
 
-    def create
-        @like = Like.create(like_params)
+def save_like 
+  @like = Like.new(chirp_id: params[:chirp_id], user_id: current_user.id)
+
+  respond_to do |format|
+    format.json {
+      if @like.save 
+        { success: true }
+      else
+        { success: false }
+      end
+    }
     end
-
-    private
-
-    def like_params
-        params.require(:like).permit(:user_id, :chirp_id)
-    end
-
+  end
 end
