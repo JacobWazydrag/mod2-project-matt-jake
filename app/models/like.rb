@@ -1,6 +1,6 @@
 class Like < ApplicationRecord
-
+    belongs_to :chirp 
     belongs_to :user
-    belongs_to :chirp
-    
+
+
 end

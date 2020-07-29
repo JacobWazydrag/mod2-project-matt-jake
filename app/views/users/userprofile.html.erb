@@ -12,18 +12,44 @@
   				<strong><%= link_to chirp.user.email, user_path(chirp.user.id) %></strong><br/>
   				<p><%= chirp.chirp_text %></p>
   			</div>
+
+
         <% if user_signed_in? && current_user.id == chirp.user_id %>
   			<nav class="level">
   				<div class="level-left is-mobile">
   					<%= link_to chirp, class: "level-item" do %>
-  					  <span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
+  					    <div class="block">
+						  <span class="button is-info">
+						    Home		
+						    <button class=""></button>
+						  </span>
+						</div>
   					<% end %>
   					<%= link_to edit_chirp_path(chirp), class: "level-item" do %>
-  					  <span class="icon"><i class="fa fa-pencil" aria-hidden="true"></i></span>
+  						<div class="block">
+						  <span class="button is-warning">
+						    Edit Chirp		
+						    <button class=""></button>
+						  </span>
+						</div>
   					<% end %>
   					<%= link_to root_path, method: :delete, data: { confirm: "Are you sure you want to delete this tweeet?" } do %>
-  							<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+						<div class="block">
+						  <span class="button is-danger is-rounded">
+						    Remove Chrip		
+						    <button class="delete is-small"></button>
+						  </span>
+						</div>
   					<% end %>
+					<%= link_to like_chirp_path(chirp), method: :put do %>
+						<div class="block">
+						  <span class="button is-info is-rounded">
+						    Like Chrip <%= chirp.get_upvotes.size %>		
+						    <button class=""></button>
+						  </span>
+						</div>
+					<% end%>
+
   				</div>
   			</nav>
         <% end %>
@@ -32,3 +58,7 @@
   </div>
 <% end %>
 </div>
+
+              <p class="control">
+                <%= link_to 'Home', root_path, class: "button is-info is-inverted" %>
+              </p>

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  acts_as_voter
   has_many :chirps
 
   has_many :received_friendships, foreign_key: :friend_id, class_name: "Friendship"
