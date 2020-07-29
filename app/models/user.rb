@@ -6,10 +6,10 @@ class User < ApplicationRecord
 
   has_many :chirps
 
-  has_many :received_friendships, foreign_key: :friend_id, class_name: "Friendship"
-  has_many :followers, through: :received_friendships, source: :follower
+  has_many :incoming_friendships, foreign_key: :friend_id, class_name: "Friendship", dependent: :destroy
+  has_many :followers, through: :incoming_friendships, source: :follower
 
-  has_many :given_friendships, foreign_key: :follower_id, class_name: "Friendship"
-  has_many :follows, through: :given_friendships, source: :friend
+  has_many :outgoing_friendships, foreign_key: :follower_id, class_name: "Friendship", dependent: :destroy
+  has_many :friends, through: :outgoing_friendships, source: :friend
 
 end

@@ -9,6 +9,11 @@ class FriendshipsController < ApplicationController
         @user = current_user
     end
 
+    def destroy
+        @friendship = Friendship.where(friendship_params)
+        @friendship.destroy
+    end
+
     private
 
     def friendship_params

@@ -1,7 +1,10 @@
 <h1> <%= @user.name %> </h1>
 
-<h2> <% if current_user.friends
-	<%= link
+<h2>	<% if @friend_ids.include? @user.id %>
+			<%= link_to "Follow", create_friendship_path(follower_id: current_user.id, friend_id: @user.id) %>
+		<% else %>
+			<%= link_to "Unfollow", destroy_friendship_path(follower_id: current_user.id, friend_id: @user.id) %>
+		<% end %> </h2>
 
 <% @chirps.each do |chirp| %>
   <div class="box">
