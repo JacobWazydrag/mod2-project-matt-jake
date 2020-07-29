@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <% if user_signed_in? %>
-
     <% @chirps.each do |chirp| %>
         <%= chirp.chirp_text %>
-  <% end %>
-
+    <% end %>
 <% end %>
