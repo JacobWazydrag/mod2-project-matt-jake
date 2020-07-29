@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <% if user_signed_in? %>
-<h1><strong><%= current_user.email %>'s  Chirps!</strong></h1>
 
+<<<<<<< HEAD
 					<div>
 						<p class="heading">Total Chirps: <%= current_user.chirps.count %></p>
 						<p class="title is-6"></p>
@@ -54,5 +54,10 @@
     <% end %>
   </tbody>
 </table>
+=======
+    <% @chirps.each do |chirp| %>
+        <%= chirp.chirp_text %>
+  <% end %>
+>>>>>>> master
 
 <% end %>
