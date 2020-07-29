@@ -2,6 +2,7 @@
 
 <% if user_signed_in? %>
     <% @chirps.each do |chirp| %>
+        <%= link_to chirp.user.name user_path(chirp.user) %>
         <%= chirp.chirp_text %>
     <% end %>
 <% end %>
