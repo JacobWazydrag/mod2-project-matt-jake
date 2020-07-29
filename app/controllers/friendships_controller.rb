@@ -4,6 +4,11 @@ class FriendshipsController < ApplicationController
         @friendship = Friendship.create(friendship_params)
     end
 
+    def index
+        @friendships = Friendship.all
+        @user = current_user
+    end
+
     private
 
     def friendship_params

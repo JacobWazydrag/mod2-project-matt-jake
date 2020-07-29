@@ -7,4 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 #20.times do
-#   User.create()
+
+30.times do
+User.create(
+    name:Faker::Name.name,
+    email: Faker::Internet.email,
+    password: 'topsecret',
+    password_confirmation: 'topsecret'
+    )
+end
+
+100.times do
+    Friendship.create(
+        follower_id: User.all.sample.id,
+        friend_id: User.all.sample.id
+    )
+end
+
+300.times do
+    Chirp.create(
+        user_id: User.all.sample.id
+        chirp_text: Faker::Lorem.sentence
+    )
