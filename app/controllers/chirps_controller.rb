@@ -1,13 +1,13 @@
 class ChirpsController < ApplicationController
   
-  before_action :set_chirp, only: [:show, :edit, :update, :destroy]
+  before_action :set_chirp, only: [:show, :edit, :update, :destroy, :upvote]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /chirps
   # GET /chirps.json
   def index
     if current_user 
-    @chirps = current_user.chirps.all.order("created_at DESC")
+    @chirps = Chirp.all.order("created_at DESC")
     else 
       redirect_to new_user_session_path
     end 
@@ -65,6 +65,11 @@ class ChirpsController < ApplicationController
       format.html { redirect_to chirps_url, notice: 'Chirp was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def upvote 
+    @chirp = Chirp.find(params[:id])
+    @chirp.upvote_by current_user
   end
 
   private
