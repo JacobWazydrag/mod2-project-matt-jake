@@ -1,7 +1,15 @@
 class FriendshipsController < ApplicationController
 
     def create
-        @friendship = Friendship.create(friendship_params)
+        @friendship = Friendship.new
+        @friendship = Friendship.create(params)
+        byebug
+        if @friendship.save
+            flash[:follow_success] = "Followed!"
+            redirect_to user_path(params[:friend_id])
+        else
+            redirect_to user_path(params[:friend_id])
+        end
     end
 
     def index
@@ -10,14 +18,12 @@ class FriendshipsController < ApplicationController
     end
 
     def destroy
+        user_id = friendship_params[:friend_id]
         @friendship = Friendship.where(friendship_params)
         @friendship.destroy
+        redirect_to user_path(user_id)
     end
 
     private
-
-    def friendship_params
-        params.require(:friendship).permit(:follower_id, :friend_id)
-    end
     
 end
