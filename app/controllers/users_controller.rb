@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @chirps = @user.chirps.order("created_at DESC")
-        @friend_ids = @user.friends.map { |f| f.id }
     end
 
     def userprofile

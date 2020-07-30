@@ -4,7 +4,8 @@
 	<%= flash[:follow_success] %>
 <% end %>
 
-<h2>	<% if @friend_ids.include? @user.id %>
+<h2>	<% friend_ids = current_user.friends.map { |f| f.id } %>
+		<% if friend_ids.include? @user.id %>
 			<% this_friendship = Friendship.where(follower_id: current_user.id, friend_id: @user.id) %>
 			<%= link_to "Unfollow", friendships_path(this_friendship.first.id), method: :destroy %>
 		<% else %>
@@ -21,7 +22,7 @@
   		</div>
   		<div class="media-content">
   			<div class="content">
-  				<strong><%= link_to chirp.user.email, user_path(chirp.user.id) %></strong><br/>
+  				<strong><%= link_to chirp.user.name, user_path(chirp.user.id) %>:</strong><br/>
   				<p><%= chirp.chirp_text %></p>
   			</div>
         <% if user_signed_in? && current_user.id == chirp.user_id %>
