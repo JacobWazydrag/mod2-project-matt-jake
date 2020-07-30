@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :images, only: [:create, :destroy]
   #resources :likes, only: [:create, :destroy]
-  resources :friendships, only: [:index, :new, :create, :destroy]
+  resources :friendships
 
   devise_for :users
 
