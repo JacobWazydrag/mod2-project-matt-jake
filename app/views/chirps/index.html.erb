@@ -2,7 +2,16 @@
 <div class="column is-half">
 <% if user_signed_in? %>
 	
-    <% @chirps.each do |chirp| %>
+	<% @friendchirps = [] %>
+	<% current_user.friends.each do |friend| %>
+		<% friend.chirps.each do |chirp| %>
+			<% @friendchirps << chirp %>
+		<% end %>
+	<% end %>
+
+	<% @friendchirps.sort_by(&:created_at) %>
+
+    <% @friendchirps.each do |chirp| %>
 		<article class="media box">
 			<figure class="media-left">
     <h3><%= link_to chirp.user.name, user_path(chirp.user) %>
