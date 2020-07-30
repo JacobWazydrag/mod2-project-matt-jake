@@ -70,6 +70,7 @@ class ChirpsController < ApplicationController
   def upvote 
     @chirp = Chirp.find(params[:id])
     @chirp.upvote_by current_user
+    redirect_back(fallback_location: root_path)
   end
 
   private
