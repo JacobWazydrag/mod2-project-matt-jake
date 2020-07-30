@@ -1,6 +1,8 @@
 class ImagesController < ApplicationController
     
     def create
+        @image = Image.create(image_params)
+        redirect_to root_path
     end
     
     private

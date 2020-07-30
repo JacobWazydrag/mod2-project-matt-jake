@@ -4,10 +4,11 @@
 	<%= flash[:follow_success] %>
 <% end %>
 
+
 <h2>	<% friend_ids = current_user.friends.map { |f| f.id } %>
 		<% if friend_ids.include? @user.id %>
-			<% this_friendship = current_user.outgoing_friendships.where(friend_id: @user.id).first %>
-			<%= link_to "Unfollow", friendships_path, method: :destroy %>
+			<% my_friendship = current_user.outgoing_friendships.select { |friendship| friendship.friend_id == @user.id } %>
+			<%= link_to "Unfollow", friendship_path(my_friendship.first.id), method: :delete %>
 		<% else %>
 			<%= link_to "Follow", friendships_path({follower_id: current_user.id, friend_id: @user.id}), method: :create %>
 		<% end %> </h2>
@@ -46,4 +47,4 @@
 <% end %>
 </div>
 
-
+<h3> <%= link_to "Home", root_path %> </h3>
