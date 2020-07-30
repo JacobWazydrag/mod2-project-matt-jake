@@ -2,16 +2,6 @@
 
 <h2>
 
-<% @users.each do |user| %>
-    <% user.chirps.each do |chirp| %>
-
-    
-    <%= link_to user.name, user_path(user) %>
-    <br>
-<% end %><br>
-</h2>
-<% end %>
-
 <% @chirps.each do |chirp| %>
   <div class="box">
   	<article class="media">
