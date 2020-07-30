@@ -3,17 +3,18 @@
 <% if user_signed_in? %>
 	
     <% @chirps.each do |chirp| %>
+	
 		<article class="media box">
 			<figure class="media-left">
     <h3><%= link_to chirp.user.name, user_path(chirp.user) %>
 		<br>
     <p> <%= chirp.chirp_text %>
 		<br>
-		<% if chirp.created_at == chirp.updated_at %>
+	<% if chirp.created_at == chirp.updated_at %>
 		Posted: <%= chirp.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
 		<% else %>
 		Last Edited: <%= chirp.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
-		<% end %>
+	<% end %>
 		</p>
 		<%= link_to like_chirp_path(chirp), method: :put do %>
 			<div class="block">
@@ -23,11 +24,10 @@
 				</span>
 			</div>
 		<br>
-				
+		<% end %>
 		</article>
 			</figure>
 		<% end%>
     <% end %>
-<% end %>
 </div>
 </div>
