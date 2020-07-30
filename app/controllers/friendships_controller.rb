@@ -24,6 +24,12 @@ class FriendshipsController < ApplicationController
        
     end
 
+    def show
+        @followers = current_user.followers
+        @user = current_user
+    end
+
+
     private
     
     def friendship_params

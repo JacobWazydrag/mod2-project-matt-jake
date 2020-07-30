@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #resources :likes, only: [:create, :destroy]
   resources :friendships
 
+
   devise_for :users
 
   resources :users

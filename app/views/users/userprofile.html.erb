@@ -28,13 +28,13 @@
 				</div>
 				<div class="level-item has-centered-text">
 					<div>
-						<p class="heading">Following</p>
+						<p class="heading"><%= link_to 'Following', friendships_path %></p>
 						<p class="title is-6"><%= current_user.friends.count %></p>
 					</div>
 				</div>
 					<div class="level-item has-centered-text">
 					<div>
-						<p class="heading">Followers</p>
+						<p class="heading"><%= link_to 'Followers', friendship_path(1) %></p>
 						<p class="title is-6"><%= current_user.followers.count %></p>
 					</div>
 				</div>
@@ -44,5 +44,5 @@
 </div>
 
 
-
+	
 
