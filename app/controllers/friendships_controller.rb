@@ -1,14 +1,12 @@
 class FriendshipsController < ApplicationController
 
     def create
-        @friendship = Friendship.new
-        @friendship = Friendship.create(params)
-        byebug
+        @friendship = Friendship.create(friendship_params)
         if @friendship.save
             flash[:follow_success] = "Followed!"
             redirect_to user_path(params[:friend_id])
         else
-            redirect_to user_path(params[:friend_id])
+            redirect_to 'users#userprofile'
         end
     end
 
@@ -26,4 +24,8 @@ class FriendshipsController < ApplicationController
 
     private
     
+    def friendship_params
+        params.permit(:follower_id, :friend_id)
+    end
+
 end
