@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :friendships
 
 
-  devise_for :users
+  devise_for :users, :controllers => {registrations: 'registrations'}
 
   resources :users
 
