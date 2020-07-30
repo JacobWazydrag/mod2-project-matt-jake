@@ -2,6 +2,9 @@
 
 <h2>
 <% @users.each do |user| %>
+    <% user.chirps.each do |chirp| %>
+
+    
     <%= link_to user.name, user_path(user) %>
     <br>
 <% end %><br>
