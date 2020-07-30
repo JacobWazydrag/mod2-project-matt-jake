@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_172800) do
+ActiveRecord::Schema.define(version: 2020_07_30_230312) do
 
   create_table "chirps", force: :cascade do |t|
     t.integer "user_id"
@@ -32,7 +32,8 @@ ActiveRecord::Schema.define(version: 2020_07_29_172800) do
 
   create_table "images", force: :cascade do |t|
     t.integer "user_id"
-    t.text "img_url"
+    t.string "title"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -44,6 +45,14 @@ ActiveRecord::Schema.define(version: 2020_07_29_172800) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chirp_id"], name: "index_likes_on_chirp_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "pics", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_pics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

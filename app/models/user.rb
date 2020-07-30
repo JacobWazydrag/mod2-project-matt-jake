@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   acts_as_voter
+  
   has_many :chirps
+  has_many :pics 
 
   has_many :incoming_friendships, foreign_key: :friend_id, class_name: "Friendship", dependent: :destroy
   has_many :followers, through: :incoming_friendships, source: :follower

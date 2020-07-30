@@ -1,0 +1,8 @@
+ALl My Pics 
+
+
+<% @pics.each do |pic| %>
+    <%= link_to pic.description, pic %>
+    <% end %>
+
+    <%= link_to "Create new Pic", new_pic_path %>

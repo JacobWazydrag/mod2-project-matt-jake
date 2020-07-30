@@ -1,0 +1,6 @@
+<%= simple_form_for(@pic, html: {multipart: true }) do |f| %>
+
+<%= f.input :description, input_html: {class: 'form-control'} %>
+
+<%= f.button :submit %>
+<% end %>

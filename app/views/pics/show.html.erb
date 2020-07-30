@@ -1,0 +1,7 @@
+<%= @pic.description %>
+<%= @pic.user.username %>
+
+
+<%= link_to "back", pics_path %>
+<%= link_to "Edit", edit_pic_path %>
+<%= link_to "Delete", pic_path, method: :delete, data: { confirm: "Are You Sure?"}%>
