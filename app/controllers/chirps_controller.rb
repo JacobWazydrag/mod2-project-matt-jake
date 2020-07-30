@@ -10,7 +10,7 @@ class ChirpsController < ApplicationController
     @chirps = Chirp.all.order("created_at DESC")
     else 
       redirect_to new_user_session_path
-    end 
+    end
   end
 
   # GET /chirps/1

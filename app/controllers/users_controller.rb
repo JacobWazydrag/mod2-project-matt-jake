@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
     def index
         @users = User.all
+        @chirps = Chirp.all.order("created_at DESC")
       end
 
     def show
