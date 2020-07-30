@@ -22,7 +22,7 @@
 			<div class="level is-mobile">
 				<div class="level-item has-centered-text">
 					<div>
-						<p class="heading">Chirps</p>
+						<p class="heading"><%= link_to 'Chirps', chirp_path(1) %></p>
 						<p class="title is-6"><%= current_user.chirps.count %></p>
 					</div>
 				</div>

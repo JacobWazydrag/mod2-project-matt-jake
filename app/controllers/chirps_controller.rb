@@ -15,6 +15,7 @@ class ChirpsController < ApplicationController
   # GET /chirps/1
   # GET /chirps/1.json
   def show
+    @chirps = current_user.chirps
   end
 
   # GET /chirps/new

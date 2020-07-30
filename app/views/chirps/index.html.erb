@@ -14,31 +14,41 @@
     <% @friendchirps.each do |chirp| %>
 
 		<article class="media box">
-			<figure class="media-left">
-    <h3><%= link_to chirp.user.name, user_path(chirp.user) %>
+
+
+		<figure class="image is-64x64">
+	 	 	<%= gravatar_image_tag(chirp.user.email, size: 64) %>
+	 	</figure>
 		<br>
-    <p> <%= chirp.chirp_text %>
-		<br>
-	<% if chirp.created_at == chirp.updated_at %>
-		Posted: <%= chirp.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
-		<% else %>
-		Last Edited: <%= chirp.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
-	<% end %>
-		</p>
-		<%= link_to like_chirp_path(chirp), method: :put do %>
-			<div class="block">
-				<span class="button is-info is-rounded">
-					Like Chrip <%= chirp.get_upvotes.size %>		
-					<button class=""></button>
-				</span>
-			</div>
-		<br>
-		<% end %>
+		<figure class="media-left">
+	    		<h3><%= link_to chirp.user.name, user_path(chirp.user) %>
+				<br>
+
+	   			<p> <%= chirp.chirp_text %>
+				<br>
+				<% if chirp.created_at == chirp.updated_at %>
+					Posted: <%= chirp.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
+				<% else %>
+					Last Edited: <%= chirp.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
+				<% end %>
+				</p>
+
+						<%= link_to like_chirp_path(chirp), method: :put do %>
+							<div class="block">
+								<span class="button is-info is-rounded">
+									Like Chrip <%= chirp.get_upvotes.size %>		
+									<button class=""></button>
+								</span>
+							</div>
+						<% end %>
+
 		</article>
-			</figure>
-		<% end%>
-    <% end %>
+		</figure>
+	<% end%>
+
+<% end %>
+
 </div>
 </div>
 
-
+<h3> <%= link_to "Home", root_path %> </h3>
