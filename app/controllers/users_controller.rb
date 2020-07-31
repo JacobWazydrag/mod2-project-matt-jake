@@ -22,10 +22,10 @@ class UsersController < ApplicationController
         end
     end
 
-    #private
+    private
 
-    #def user_params
-    #    params.require(:user).permit(:image)
-    #end
+    def user_params
+        params.require(:user).permit(:image, :avatar)
+    end
 
 end
