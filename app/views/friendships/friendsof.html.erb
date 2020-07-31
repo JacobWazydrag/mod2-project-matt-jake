@@ -1,0 +1,12 @@
+<h1> Here's a list of all the users followed by your friends, and how many of your friends follow each of them. </h1>
+
+<%  @friendsof.each do |friendof| %>
+<%        @friendof_friends_count = 0 %>
+<%        current_user.friends.each do |friend| %>
+<%            if friend.friends.include? friendof %>
+<%                friendof_friends_count += 1 %>
+<%            else %>
+<%            end %>
+<%        end %>
+<h2><%= link_to frinedof.name, user_path(friendof) %> : <%= @friendof_friends_count %> <br> </h2>
+<% end %>

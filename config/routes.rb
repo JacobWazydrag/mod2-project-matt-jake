@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
   resources :images, only: [:create, :destroy]
-  #resources :likes, only: [:create, :destroy]
-  resources :friendships
 
+  #resources :likes, only: [:create, :destroy]
+
+  get '/friendships/friendsof', to: 'friendships#friendsof'
+  resources :friendships
 
   devise_for :users, :controllers => {registrations: 'registrations'}
 
