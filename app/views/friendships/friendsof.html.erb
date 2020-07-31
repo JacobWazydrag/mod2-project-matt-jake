@@ -4,9 +4,9 @@
 <%        @friendof_friends_count = 0 %>
 <%        current_user.friends.each do |friend| %>
 <%            if friend.friends.include? friendof %>
-<%                friendof_friends_count += 1 %>
+<%                @friendof_friends_count += 1 %>
 <%            else %>
 <%            end %>
 <%        end %>
-<h2><%= link_to frinedof.name, user_path(friendof) %> : <%= @friendof_friends_count %> <br> </h2>
+<h2><%= link_to friendof.name, user_path(friendof) %> : <%= @friendof_friends_count %> <br> </h2>
 <% end %>
