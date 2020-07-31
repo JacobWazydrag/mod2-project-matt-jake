@@ -32,7 +32,7 @@ gem 'bulma-rails', '~> 0.9.0'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'faker', '~> 1.6', '>= 1.6.3'
-gem 'paperclip', '~> 4.2.0'
+gem 'paperclip', '~> 5.2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
