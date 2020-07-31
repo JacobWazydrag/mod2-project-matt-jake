@@ -1,7 +1,8 @@
 <h1> Here's a list of all the users followed by your friends, and how many of your friends follow each of them. </h1>
 
-<%  @friendsof.each do |friendof| %>
-        <% friendof.each do |user, count| %>
+<% @friends_of_with_counts.each do |user, count| %>
+
 <h2><%= link_to user.name, user_path(user) %> : <%= count %> </h2>
 <br>
+
 <% end %>
