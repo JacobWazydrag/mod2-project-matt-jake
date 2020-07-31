@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   
   resources :pics
-  resources :images
   #resources :likes, only: [:create, :destroy]
   resources :friendships
 

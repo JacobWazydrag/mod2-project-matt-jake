@@ -4,6 +4,9 @@
     <article class="media box">
         <figure class="media-left">
             
+            <%= image_tag @pic.image.url(:medium) %>
+
+
             <h3><%= @pic.description %></h3>
             <br>
 	        <% if @pic.created_at == @pic.updated_at %>
@@ -21,8 +24,8 @@
             <button class="button is-danger is-outlined">Delete</button>
             <% end %>
 
-    </article>
-		</figure>
+        </article>
+	</figure>
 </div>
 
 

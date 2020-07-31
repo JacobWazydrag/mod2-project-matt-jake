@@ -1,5 +1,9 @@
 <h1>Edit Your Pic</h1>
 
+<%= image_tag @pic.image.url(:medium) %>
+
 <%= render 'form' %>
 
-<%= link_to "Cancel", pic_path %>
+<p><%= link_to pic_path do %></P>
+<button class="button is-primary is-outlined">Cancel</button>
+<% end %>

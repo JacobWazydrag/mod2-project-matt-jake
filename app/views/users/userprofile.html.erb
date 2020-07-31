@@ -40,6 +40,12 @@
 						<p class="title is-6"><%= current_user.followers.count %></p>
 					</div>
 				</div>
+					<div class="level-item has-centered-text">
+					<div>
+						<p class="heading"><%= link_to 'Pics', pics_path %></p>
+						<p class="title is-6"><%= current_user.pics.count %></p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</nav>
