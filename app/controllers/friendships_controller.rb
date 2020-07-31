@@ -36,6 +36,8 @@ class FriendshipsController < ApplicationController
                 @friendsof << friendof
             end
         end
+        @friendsof = @friendsof
+        @friendsof
         render "friendsof"
     end
 
