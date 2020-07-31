@@ -1,6 +1,7 @@
 <h1> Currently Following: </h1>
 
 <% @friends.each do |friend| %>
+
 <h2> <%= link_to friend.name, user_path(friend.id) %> </h2>
 <br>
 <% end %>
