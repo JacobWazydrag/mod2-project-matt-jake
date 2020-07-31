@@ -16,17 +16,35 @@
 		Last Edited: <%= chirp.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
 	<% end %>
 		</p>
-		<%= link_to like_chirp_path(chirp), method: :put do %>
-			<div class="block">
-				<span class="button is-info is-rounded">
-					Like Chrip <%= chirp.get_upvotes.size %>		
-					<button class=""></button>
-				</span>
-			</div>
-		<br>
-		<% end %>
+					<%= link_to like_chirp_path(chirp), method: :put do %>
+						<div class="block">
+							<span class="button is-info is-rounded">
+								Like Chrip <%= chirp.get_upvotes.size %>		
+								<button class=""></button>
+							</span>
+						</div>
+					<br>
+					<% end %>
+		
+					<% if user_signed_in? && current_user.id == chirp.user_id %>
+  			<nav class="level">
+  				<div class="level-left is-mobile">
+  					<%= link_to root_path, class: "level-item" do %>
+  					  <button class="button is-primary is-outlined">Home</button>
+  					<% end %>
+  					<%= link_to edit_chirp_path(chirp), class: "level-item" do %>
+  					  <button class="button is-info is-outlined">Edit</button>
+  					<% end %>
+  					<%= link_to chirp, method: :delete, data: { confirm: "Are you sure you want to delete this chirp?" } do %>
+  							<button class="button is-danger is-outlined">Delete</button>
+  					<% end %>
+  				</div>
+  			</nav>
+        <% end %>
+
+		
 		</article>
-			</figure>
+		</figure>
 <% end%>
 </div>
 </div>

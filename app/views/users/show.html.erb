@@ -21,6 +21,7 @@
   				<img src="<%= chirp.user.pics.sample.pic_url %>" alt="<%= chirp.user.name %>">
   			</figure>
   		</div>
+		  
   		<div class="media-content">
   			<div class="content">
   				<strong><%= link_to chirp.user.name, user_path(chirp.user.id) %>:</strong><br/>
@@ -41,6 +42,7 @@
   				</div>
   			</nav>
         <% end %>
+		
   		</div>
   	</article>
   </div>
