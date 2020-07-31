@@ -4,8 +4,13 @@ Rails.application.routes.draw do
 
   #resources :likes, only: [:create, :destroy]
 
-  get '/friendships/friendsof', to: 'friendships#friendsof'
-  resources :friendships
+  #get '/friendships/friendsof', to: 'friendships#friendsof'
+  #resources :friendships
+  resources :friendships do
+    member do
+      get '/friendsof', to: 'friendships#friendsof'
+    end
+  end
 
   devise_for :users, :controllers => {registrations: 'registrations'}
 

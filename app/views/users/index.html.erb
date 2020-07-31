@@ -8,7 +8,7 @@
 		<article class="media box">
 
 		<figure class="image is-64x64">
-	 	 	<%= gravatar_image_tag(chirp.user.email, size: 64) %>
+	 	 	<img src="<%= chirp.user.pics.sample.pic_url %>" alt="<%= chirp.user.name %>">
 	 	</figure>
 		<br>
 		<figure class="media-left">

@@ -29,14 +29,14 @@ class FriendshipsController < ApplicationController
         @user = current_user
     end
 
-    def freindsof
+    def friendsof
         @friendsof = []
-        current.user.friends.each do |friend|
+        current_user.friends.each do |friend|
             friend.friends.each do |friendof|
                 @friendsof << friendof
             end
         end
-        render 'friendships#friendsof'
+        render "friendsof"
     end
 
     private

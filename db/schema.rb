@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_07_31_121355) do
 
   create_table "pics", force: :cascade do |t|
     t.text "description"
+    t.text "pic_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"

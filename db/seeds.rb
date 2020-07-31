@@ -32,5 +32,9 @@ end
         user_id: User.all.sample.id,
         chirp_text: Faker::Lorem.sentence
     )
+Pic.create(
+    user_id: User.all.sample.id,
+    pic_url: 'https://picsum.photos/64'
+    )
 end
 
