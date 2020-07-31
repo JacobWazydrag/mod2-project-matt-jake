@@ -36,8 +36,13 @@ class FriendshipsController < ApplicationController
                 @friendsof << friendof
             end
         end
-        @friendsof = @friendsof
-        @friendsof
+
+        #@friendsof.inject(Hash.new(0)) { |total, e| total[e] += 1 ;total}
+
+        @friends_of_with_counts = Hash.new(0)
+        @friendsof.each do |friendof|
+            @friends_of_with_counts[friendof] += 1
+        end
         render "friendsof"
     end
 
