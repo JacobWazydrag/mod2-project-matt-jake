@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_172800) do
+ActiveRecord::Schema.define(version: 2020_07_31_121355) do
 
   create_table "chirps", force: :cascade do |t|
     t.integer "user_id"
@@ -30,13 +30,6 @@ ActiveRecord::Schema.define(version: 2020_07_29_172800) do
     t.index ["friend_id"], name: "index_friendships_on_friend_id"
   end
 
-  create_table "images", force: :cascade do |t|
-    t.integer "user_id"
-    t.text "img_url"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "chirp_id"
@@ -44,6 +37,18 @@ ActiveRecord::Schema.define(version: 2020_07_29_172800) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chirp_id"], name: "index_likes_on_chirp_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "pics", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["user_id"], name: "index_pics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,6 +66,10 @@ ActiveRecord::Schema.define(version: 2020_07_29_172800) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

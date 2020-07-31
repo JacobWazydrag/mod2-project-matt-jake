@@ -1,0 +1,39 @@
+<h1> <b> Every Pic: </b> </h1>
+<p id="notice"><%= notice %></p>
+
+<div class="column is-half">
+
+
+    <% @pics.each do |pic| %>
+
+		<article class="media box">
+
+		<br>
+		<figure class="media-left">
+
+				<%= link_to (image_tag pic.image.url(:thumb)), pic %>
+
+	    		<h3><%= link_to pic.description, pic %>
+				<br>
+
+				<% if pic.created_at == pic.updated_at %>
+					Posted: <%= pic.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
+				<% else %>
+					Last Edited: <%= pic.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
+				<% end %>
+				</p>
+            
+		</article>
+		</figure>
+	<% end%>
+
+</div>
+</div>
+
+<p><%= link_to new_pic_path do %></p>
+<button class="button is-info is-outlined">Upload New</button>
+<% end %>
+
+<p><%= link_to root_path do %></P>
+<button class="button is-primary is-outlined">Home</button>
+<% end %>

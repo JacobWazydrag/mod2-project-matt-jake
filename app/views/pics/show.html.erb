@@ -1,0 +1,35 @@
+
+
+<div class="column is-half">
+    <article class="media box">
+        <figure class="media-left">
+            
+            <%= image_tag @pic.image.url(:medium) %>
+
+
+            <h3><%= @pic.description %></h3>
+            <br>
+	        <% if @pic.created_at == @pic.updated_at %>
+		    Uploaded: <%= @pic.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
+		    <% else %>
+		    Last Edited: <%= @pic.created_at.strftime("%d/%m/%Y, %I:%M %p") %>
+	        <% end %>
+		    </p>
+            
+            <%= link_to edit_pic_path do %>
+            <button class="button is-info is-outlined">Edit</button>
+            <% end %>
+    
+            <%= link_to pic_path, method: :delete, data: { confirm: "Are You Sure?"} do %>
+            <button class="button is-danger is-outlined">Delete</button>
+            <% end %>
+
+        </article>
+	</figure>
+</div>
+
+
+
+<p><%= link_to pics_path do %></p>
+<button class="button is-primary is-outlined">Back</button>
+<% end %>
